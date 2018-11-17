@@ -5662,7 +5662,10 @@ class CfgSettings
 			"ItemMap", // Because why not
 			"Exile_Item_XM8",
 			"ItemRadio",
-			"Exile_Item_PlasticBottleFreshWater"
+			"Exile_Item_Beer"
+			"Exile_Weapon_Makarov"
+			"Exile_Magazine_8Rnd_9x18"
+			"acc_flashlight"
 		};
 
 		/**
