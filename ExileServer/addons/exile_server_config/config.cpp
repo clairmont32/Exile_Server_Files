@@ -5665,7 +5665,8 @@ class CfgSettings
 			"Exile_Item_Beer",
 			"Exile_Weapon_Makarov",
 			"Exile_Magazine_8Rnd_9x18",
-			"acc_flashlight"
+			"Exile_Magazine_8Rnd_9x18",
+			"Exile_Item_BeefParts"
 		};
 
 		/**
@@ -5692,7 +5693,7 @@ class CfgSettings
 		/**
 		 * Parachute drop height in meters. 
 		 */
-		parachuteDropHeight = 1000;
+		parachuteDropHeight = 500;
 
 		/**
 		 * Number of minutes where a fresh spawned player remains in the
@@ -6090,7 +6091,7 @@ class CfgSettings
 			function = "ExileServer_system_event_earthQuake_start";
 			minTime = 0;
 			maxTime = 0;
-			minimumPlayersOnline = 1;
+			minimumPlayersOnline = 10;
 		};
 
 		class SupplyBox 
@@ -6115,7 +6116,7 @@ class CfgSettings
 				The type of box is chosen randomly from the following list.
 				Add a type multiple times to increase the chance of being used.
 			*/
-			types[] = {"Beer", "Beer", "Tools", "Food", "Food", "RepairParts"};
+			types[] = {"Beer", "Beer", "Tools", "Food", "Food", "Mixed", "Mixed", "Mixed", "Mixed", "RepairParts"};
 
 			class BoxTypes
 			{
@@ -6123,7 +6124,7 @@ class CfgSettings
 				{
 					items[] = 
 					{
-						{"Exile_Item_Beer", 24}
+						{"Exile_Item_Beer", 10}
 					};
 				};
 
@@ -6131,18 +6132,30 @@ class CfgSettings
 				{
 					items[] = 
 					{
-						{"Exile_Item_BBQSandwich", 5},
-						{"Exile_Item_Catfood", 5},
-						{"Exile_Item_ChristmasTinner", 5},
-						{"Exile_Item_GloriousKnakworst", 5},
-						{"Exile_Item_SausageGravy", 5},
-						{"Exile_Item_Surstromming", 5},
-						{"Exile_Item_CanOpener", 1},
-						{"Exile_Item_CookingPot", 1},
+						{"Exile_Item_BBQSandwich", 3},
+						{"Exile_Item_Catfood", 2},
+						{"Exile_Item_ChristmasTinner", 2},
+						{"Exile_Item_GloriousKnakworst", 3},
+						{"Exile_Item_SausageGravy", 4},
+						{"Exile_Item_Surstromming", 1},
 						{"Exile_Item_Matches", 1}
 					};
 				};
 
+				class Mixed 
+				{
+					items[] = 
+					{
+						{"Exile_Item_BBQSandwich", 3},
+						{"Exile_Item_Matches", 1},
+						{"Exile_Item_BeefParts", 4},
+						{"Exile_Item_Matches", 1},
+						{"Exile_Item_DuctTape", 3},
+						{"Exile_Item_FuelCanisterFull", 1},
+						{"Exile_Item_CarWheel", 1}
+					};
+				};
+				
 				class Tools 
 				{
 					items[] = 
@@ -6161,11 +6174,11 @@ class CfgSettings
 				{
 					items[] = 
 					{
-						{"Exile_Item_CarWheel", 8},
-						{"Exile_Item_FuelCanisterFull", 4},
+						{"Exile_Item_CarWheel", 2},
+						{"Exile_Item_FuelCanisterFull", 2},
 						{"Exile_Item_OilCanister", 1},
-						{"Exile_Item_Grinder", 1},
-						{"Exile_Item_CordlessScrewdriver", 1}
+						{"Exile_Item_CanOpener", 1},
+						{"Exile_Item_DuctTape", 4}
 					};
 				};
 			};
@@ -6303,17 +6316,17 @@ class CfgSettings
 		{
 			type = "spawn";
 			function = "ExileServer_system_event_abandonedSafe_start";
-			minTime = 60; // minutes
+			minTime = 90; // minutes
 			maxTime = 120; // minutes
 			minimumPlayersOnline = 0;
-			markerTime = 15; // minutes
+			markerTime = 10; // minutes
 		};
 
 		class AmbientFlyOver
 		{
 			type = "call";
 			function = "ExileServer_system_event_ambientFlyOver_start";
-			minTime = 30; // minutes
+			minTime = 60; // minutes
 			maxTime = 90; // minutes
 			minimumPlayersOnline = 1;
 		};
