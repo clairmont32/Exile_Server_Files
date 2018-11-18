@@ -3523,6 +3523,12 @@ class CfgExileEnvironment
 		class FireFlies: FireFlies
 		{
 			enable = 1;
+
+			// At this hour fire flies begin to spawn
+			startHour = 18;
+
+			// At this hour fire flies stop spawning
+			endHour = 4;
 		};
 
 		class Anomalies: Anomalies
@@ -3532,7 +3538,7 @@ class CfgExileEnvironment
 
 		class Breathing: Breathing
 		{
-			enable = 1;
+			enable = 0;
 		};
 
 		class Snow: Snow
@@ -3542,7 +3548,7 @@ class CfgExileEnvironment
 
 		class Radiation: Radiation
 		{
-			enable = 1;
+			enable = 0;
 		};
 
 		class Temperature: Temperature
