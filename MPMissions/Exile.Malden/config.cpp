@@ -4536,7 +4536,7 @@ class CfgLocker
 {
 	numbersOnly = "0123456789";
 	
-	maxDeposit = 10000;
+	maxDeposit = 100000;
 };
 
 class CfgPlayer 
@@ -4565,7 +4565,7 @@ class CfgPlayer
 	enableFatigue = 0;
 	enableStamina = 0;
 
-	disableMapDrawing = 1;
+	disableMapDrawing = 0;
 	
 	// Use the current gradient to affect the players movement when autorunning.
 	// 0 == default exile auto run
@@ -4696,7 +4696,7 @@ class CfgTerritories
 	maximumRadius = 150;
 
 	// The above * 2 plus coverving the 20m you can move while placing things
-	minimumDistanceToOtherTerritories = 325; 
+	minimumDistanceToOtherTerritories = 325;
 
 	// Maximum number of territories a player can own
 	maximumNumberOfTerritoriesPerPlayer = 2;
