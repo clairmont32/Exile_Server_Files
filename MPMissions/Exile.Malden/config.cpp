@@ -4542,18 +4542,18 @@ class CfgLocker
 class CfgPlayer 
 {
 	// In minutes ammount of time it takes to go from 100 - 0 if stationary
-	hungerDecay = 90;
-	thirstDecay = 60;
+	hungerDecay = 45;
+	thirstDecay = 45;
 
 	// Damage taken from 0 (health||thirst)/sec
 	healthDecay = 5.0;
 
 	// Health regen if over BOTH
-	thirstRegen = 90;
-	hungerRegen = 90;
+	thirstRegen = 80;
+	hungerRegen = 80;
 
 	// IF above meet recover HP%/MIN
-	recoveryPerMinute = 2;
+	recoveryPerMinute = 5;
 
 	// Set custom aim precision coefficient for weapon sway
 	// https://community.bistudio.com/wiki/Arma_3_Stamina
@@ -4580,7 +4580,7 @@ class CfgPlayer
 */
 class CfgPoptabStorage
 {
-	class Exile_Container_Safe_Small { max = 25000; };	
+	class Exile_Container_Safe_Small { max = 25000; };
 };
 class CfgSimulation
 {
