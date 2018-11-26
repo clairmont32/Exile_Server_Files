@@ -5528,18 +5528,18 @@ class CfgSettings
 		class Database 
 		{
 			// Remove all deleted items from the database after X days
-			permanentlyDeleteTime = 3;
+			permanentlyDeleteTime = 90;
 			
 			// Remove all territories (and contructions + containers in it) that were not paid after X days
 			territoryLifeTime = 7;
 
 			// Remove all containers outside of territories that have not been used for X days
 			// Example: Tents
-			containerLifeTime = 10;
+			containerLifeTime = 2;
 
 			// Remove all constructions outside of territories that are older than X days or not moved for X days 
 			// Example: Work Benches
-			constructionLifeTime = 2;
+			constructionLifeTime = 1;
 
 			// Remove all vehicles that were not moved/used for X days
 			vehicleLifeTime = 3;
@@ -5565,7 +5565,7 @@ class CfgSettings
 		*
 		* Default: Get 1 respect for every 10 pop tabs 
 		*/
-		tradingRespectFactor = 0.1;
+		tradingRespectFactor = 0.05;
 		
 		/**
 		* Defines the the minimum amount of Respect earned/lost for a kill
@@ -5642,7 +5642,7 @@ class CfgSettings
 	class KillFeed
 	{
 		// Shows a kill feed for well kills
-		showKillFeed = 1;
+		showKillFeed = 0;
 	};
 
 	///////////////////////////////////////////////////////////////////////
@@ -5693,7 +5693,7 @@ class CfgSettings
 		/**
 		 * Parachute drop height in meters. 
 		 */
-		parachuteDropHeight = 500;
+		parachuteDropHeight = 1000;
 
 		/**
 		 * Number of minutes where a fresh spawned player remains in the
@@ -5706,7 +5706,7 @@ class CfgSettings
 		/**
 		 * Radius of spawn zones around the center of spawn zone markers.
 		 */
-		spawnZoneRadius = 500;
+		spawnZoneRadius = 400;
 
 		/**
 		 * These vehicles spawn on server restart close to spawn zones.
@@ -5751,7 +5751,7 @@ class CfgSettings
 		/**
 		* The server will apply random damage up to this value when spawning a vehicle.
 		*/
-		damageChance = 30; // 20% chance for a vehicle HITPOINT to be damaged
+		damageChance = 40; // 40% chance for a vehicle HITPOINT to be damaged
 		maximumDamage = 0.7;
 
 		/**
@@ -6032,14 +6032,14 @@ class CfgSettings
 			0 = off
 			1 = on
 		*/
-		useRestartMessages = 0;
+		useRestartMessages = 1;
 
 		/*
 			Number of minutes before the restart to inform your players.
 
 			Only use full minutes here. Value like 5.5 have not been tested.
 		*/
-		restartWarningTime[] = {15, 10, 5, 3}; 
+		restartWarningTime[] = {15, 10, 5, 3, 1}; 
 
 		/* 
 			If set to 1 server will execute '#shutdown',
@@ -6084,7 +6084,7 @@ class CfgSettings
 		*/
 		//enabledEvents[] = {"SupplyBox", "AbandonedSafe", "AmbientFlyOver", "EarthQuake"}; 
 		enabledEvents[] = {"SupplyBox", "AbandonedSafe", "AmbientFlyOver"}; 
-		enabledEscapeEvents[] = {"EscapeSupplyBox", "AmbientFlyOver", "EarthQuake"}; 
+		enabledEscapeEvents[] = {"EscapeSupplyBox", "AmbientFlyOver"}; 
 
 		class EarthQuake 
 		{
@@ -6104,11 +6104,11 @@ class CfgSettings
 			*/
 			type = "spawn";
 			function = "ExileServer_system_event_supplyBox_start";
-			minTime = 120; // minutes
-			maxTime = 180; // minutes
+			minTime = 180; // minutes
+			maxTime = 240; // minutes
 			minimumPlayersOnline = 2;
 			dropRadius = 500; // 500m around an airport (including the main airport on Altis!)
-			dropAltitude = 100; // altitude of the drop
+			dropAltitude = 300; // altitude of the drop
 			markerTime = 10; // minutes
 
 			/*
@@ -6117,18 +6117,30 @@ class CfgSettings
 				The type of box is chosen randomly from the following list.
 				Add a type multiple times to increase the chance of being used.
 			*/
-			types[] = {"Beer", "Beer", "Tools", "Food", "Food", "Mixed", "Mixed", "Mixed", "Mixed", "RepairParts"};
+			types[] = {"Trash", "Trash", "Trash", "Beer", "Beer", "Beer", "Beer", "Trash","SemiRandom", "SemiRandom", "SemiRandom", "Tools", "Food", "Food", "Mixed", "Mixed", "Mixed", "Mixed", "RepairParts", "RepairParts", "RepairParts"};
 
 			class BoxTypes
 			{
+				class Trash 
+				{
+					items[] = 
+					{
+						{"Exile_Item_Beer", 1}
+						{"Exile_Item_Magazine03"},
+						{"Exile_Item_ToiletPaper"},
+						{"Exile_Item_Magazine04"},
+						{"Exile_Item_Magazine02"},
+						{"Exile_Item_PlasticBottleEmpty"}
+					};
+				};
+
 				class Beer 
 				{
 					items[] = 
 					{
-						{"Exile_Item_Beer", 10}
+						{"Exile_Item_Beer", 1}
 					};
 				};
-
 				class Food 
 				{
 					items[] = 
@@ -6179,7 +6191,31 @@ class CfgSettings
 						{"Exile_Item_FuelCanisterFull", 2},
 						{"Exile_Item_OilCanister", 1},
 						{"Exile_Item_CanOpener", 1},
-						{"Exile_Item_DuctTape", 4}
+						{"Exile_Item_DuctTape", 1}
+					};
+				};
+				class SemiRandom 
+				{
+					items[] = 
+					{
+						{"Exile_Item_CarWheel", 2},
+						{"Exile_Item_FuelCanisterFull", 1},
+						{"Exile_Item_OilCanister", 1},
+						{"Exile_Item_MobilePhone", 1},
+						{"3Rnd_UGL_FlareWhite_F", 1},
+						{"3Rnd_UGL_FlareGreen_F", 1},
+						{"UGL_FlareRed_F", 1},
+						{"UGL_FlareWhite_F", 1}, 
+						{"LMG_03_F", 1},
+						{"Exile_Magazine_8Rnd_74Slug", 15},
+						{"Exile_Weapon_SA61", 1},
+						{"Exile_Item_ChocolateMilk", 5},
+						{"Exile_Item_PlasticBottleDirtyWater", 20},
+						{"Rangefinder", 1},
+						{"acc_pointer_IR", 2},
+						{"optic_Hamr", 3},
+						{"Exile_Item_FireExtinguisher", 1},
+						{"optic_SOS_khk_F", 2}
 					};
 				};
 			};
@@ -6317,9 +6353,9 @@ class CfgSettings
 		{
 			type = "spawn";
 			function = "ExileServer_system_event_abandonedSafe_start";
-			minTime = 90; // minutes
-			maxTime = 120; // minutes
-			minimumPlayersOnline = 0;
+			minTime = 300; // minutes
+			maxTime = 420; // minutes
+			minimumPlayersOnline = 1;
 			markerTime = 10; // minutes
 		};
 
